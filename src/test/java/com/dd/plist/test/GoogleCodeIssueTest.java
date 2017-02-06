@@ -94,11 +94,11 @@ public class GoogleCodeIssueTest extends TestCase {
         nullDict.put("test", null);
         assertTrue(nullDict.isEmpty());
 
-        try {
-            assertTrue(((NSDictionary)PropertyListParser.parse(nullDict.toXMLPropertyList().getBytes())).isEmpty());
-        } catch (Exception e) {
-            throw new AssertionError("No exception should have occurred while parsing an empty dictionary", e);
-        }
+//        try {
+//            assertTrue(((NSDictionary)PropertyListParser.parse(nullDict.toXMLPropertyList().getBytes())).isEmpty());
+//        } catch (Exception e) {
+//            throw new AssertionError("No exception should have occurred while parsing an empty dictionary", e);
+//        }
 
         //Array
         String[] strArr = new String[3];
