@@ -150,3 +150,9 @@ In this example your property list file is called _properties.plist_.
 
     //Save the propery list
     PropertyListParser.saveAsXML(root, new File("people.plist"));
+
+
+### Bug Fixes
+
+	- Caused by: java.lang.UnsupportedOperationException: This parser does not support specification "Unknown" version "0.0"
+	-- I Made changes in XMLPropertyListParser.java on line 67

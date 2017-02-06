@@ -64,7 +64,23 @@ public class XMLPropertyListParser {
             FACTORY.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
         } catch (ParserConfigurationException e) {
         }
-        FACTORY.setXIncludeAware(false);
+        
+        /* This should be the default, but let's be safe and try and disable it.
+         * We also have to cater for older XML parsers that do not support this.
+         */
+        try {
+            FACTORY.setXIncludeAware(false);
+        } catch (UnsupportedOperationException e) {
+            /* This is OK; older versions of the parser do not support XInclude at
+             * all.
+             */
+        } catch (NoSuchMethodError e) {
+            /* This is OK; older versions of the parser do not support XInclude at
+             * all.  This is here for jdk 1.4 and earlier Xerces versions.
+             */ 
+        }
+        
+        
         FACTORY.setExpandEntityReferences(false);
         FACTORY.setNamespaceAware(false);
         FACTORY.setIgnoringComments(true);
